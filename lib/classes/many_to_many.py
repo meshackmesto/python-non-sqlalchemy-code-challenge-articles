@@ -15,6 +15,12 @@ class Article:
     @property
     def title(self):
         return self._title
+    @title.setter
+    def title(self, title):
+        if hasattr(self, "title"):AttributeError("Title cannot be changed") 
+        else:
+                raise TypeError("Title must be a string")
+        self._title = title
 
     @property
     def author(self):
@@ -33,6 +39,7 @@ class Article:
         self._magazine._articles.append(self)
 
 class Author:
+    
     def __init__(self, name):
         if not isinstance(name, str) or len(name) == 0:
             raise Exception("Name must be a non-empty string")
